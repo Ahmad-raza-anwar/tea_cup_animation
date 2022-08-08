@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tea Cup</title>
+
+  <style>
+    *{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: linear-gradient(to right, rgba(137, 43, 226, 0.637), rgba(255, 105, 180, 0.63));
+    }
+    #container{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      position: relative;
+      top: 50px;
+      /* background-color: blueviolet; */
+    }
+    #cup{
+      position: relative;
+      width: 280px;
+      background: linear-gradient(to right, #f9f9f9, #d9d9d9);
+      height: 300px;
+      border-bottom-left-radius: 40%;
+      border-bottom-right-radius: 40%;
+    }
+    #top{
+      width: 100%;
+      height: 60px;
+      border-radius: 50%;
+      /* background-color: burlywood; */
+      background: linear-gradient(to right, #f9f9f9, #d9d9d9);
+      position: absolute;
+      top: -30px;
+      left: 0;
+    }
+    #circle{
+      width: calc(100% - 20px);
+      height: 50px;
+      position: absolute;
+      top: 5px;
+      border-radius: 50%;
+      left: 10px;
+      overflow: hidden;
+      background: linear-gradient(to left, #f9f9f9, #d9d9d9);
+    }
+    #tea{
+      width: 100%;
+      height: 100%;
+      top: 20px;
+      left: 0;
+      border-radius: 50%;
+      background: #c57e65;
+      /* background: linear-gradient(#c57e65); */
+      position: absolute;
+    }
+    #handle{
+      width: 160px;
+      height: 180px;
+      position: absolute;
+      top: 40px;
+      right: -70px;
+      transform: rotate(42deg);
+      border-radius: 50%;
+      border: 25px solid #dcdcdc;
+      border-left: 25px solid transparent;
+      border-bottom: 25px solid transparent;
+    }
+    #plate{
+      width: 500px;
+      height: 200px;
+      position: absolute;
+      bottom: 150px; 
+      left: 50%;
+      border-radius: 50%;
+      box-shadow: 0 35px 35px rgba(0, 0, 0, 0.2);
+      transform: translateX(-50%);
+      background: linear-gradient(to right, #f9f9f9, #e7e7e7);
+    }
+    #plate::before{
+      content: "";
+      background: linear-gradient(to left, #f9f9f9, #e7e7e7);
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      bottom:10px;
+      right: 10px;
+      border-radius: 50%;
+    }
+    #plate::after{
+      content: "";
+      background: Radial-gradient(rgba(0,0,0,0.3) 25% , transparent, transparent);
+      position: absolute;
+      left: 30px;
+      top: 30px;
+      bottom:30px;
+      right: 30px;
+      border-radius: 50%;
+    }
+    #vapour{
+      position: absolute;
+      display: flex;
+      z-index: 1;
+      padding: 0 20px;
+    }
+    #vapour span{
+      min-width: 8px;
+      height: 120px;
+      margin: 0 2px 50px;
+      display: block;
+      background: #fff;
+      position: relative;
+      bottom: 50px;
+      opacity: 0;
+      border-radius: 50%;
+      filter: blur(8px);
+      animation: animate 5s linear infinite;
+      animation-delay: calc(var(--i) * -0.5s);
+    }
+    @keyframes animate  {
+      0%{
+        transform: translateY(0) scaleX(1);
+        opacity: 0;
+      }
+      15%{
+        opacity: 1;
+      }
+      50%{
+        transform: translateY(-150px) scaleX(5);
+      }
+      95%{
+        opacity: 0;
+      }
+      100%{
+        transform: translateY(-300px) scaleX(10);
+      }
+    }
+
+
+
+    #main{
+      width: 100%;
+      height: 70vh;
+      /* background: linear-gradient(to right, rgba(137, 43, 226, 0.637), rgba(255, 105, 180, 0.63)); */
+      /* background-image: url(./); */
+    }
+    #stroke-text h2::before{
+              content: attr(data-text);
+              position: absolute;
+              width: 0;
+              font-size: 120px;
+              overflow: hidden;
+              top: 0;
+              left: 0;
+              animation: textanimation 5s ease-out infinite;
+              color: blueviolet;
+              -webkit-text-stroke: 0px blueviolet;
+              border-right: 3px solid ;
+            }
+            #stroke-text{
+              width: auto;
+              height: 50vh;
+              display: flex;
+              justify-content: space-evenly;
+              align-items: center;
+              /* background-color: blueviolet; */
+            }
+            #stroke-text h2{
+              font-size: 120px;
+              position: relative;
+              color: transparent;
+              -webkit-text-stroke: 1px rgb(236, 234, 234);
+            }
+            @keyframes textanimation {
+              0%, 10%, 100%{width: 0%;}
+              50%{width: 100%;}
+            }
+            #main h3{
+              text-align: center;
+              font-size: 60px;
+              font-family: 'Courier New', Courier, monospace;
+              color: transparent;
+              -webkit-text-stroke: 1px white;
+            }
+            #main p{
+              width: 500px;
+              margin: auto;
+              text-align: center;
+              font-size: 20px;
+              color: black;
+              font-family: 'Courier New', Courier, monospace;
+              /* -webkit-text-stroke: 1px white; */
+            }
+
+
+  </style>
+
+
+</head>
+<body>
+  
+
+
+    <div id="main">
+      <div id="stroke-text">
+        <h2 data-text="Creative...">Creative...</h2>
+      </div>
+      <h3>Let Take a Tea Break ...</h3>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Alias, ullam eveniet sunt repudiandae in ratione earum? Mollitia adipisci eum, voluptates, explicabo temporibus nulla iure obcaecati repellendus soluta exercitationem molestias nesciunt?</p>
+    </div>
+
+  <div id="container">
+    <div id="plate"></div>
+    <div id="cup">
+      <div id="top">
+        <div id="vapour">
+          <span style="--i:1;"></span>
+          <span style="--i:3;"></span>
+          <span style="--i:16;"></span>
+          <span style="--i:5;"></span>
+          <span style="--i:13;"></span>
+          <span style="--i:20;"></span>
+          <span style="--i:6;"></span>
+          <span style="--i:7;"></span>
+          <span style="--i:10;"></span>
+          <span style="--i:8;"></span>
+          <span style="--i:17;"></span>
+          <span style="--i:11;"></span>
+          <span style="--i:12;"></span>
+          <span style="--i:14;"></span>
+          <span style="--i:2;"></span>
+          <span style="--i:9;"></span>
+          <span style="--i:15;"></span>
+          <span style="--i:4;"></span>
+          <span style="--i:18;"></span>
+          <span style="--i:19;"></span>
+        </div>
+        <div id="circle">
+          <div id="tea"></div>
+        </div>
+      </div>
+      <div id="handle"></div>
+    </div>
+  </div>
+  
+</body>
+</html>
